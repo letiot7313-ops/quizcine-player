@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>🎬 Quiz Ciné — Player</title>
-<link rel="stylesheet" href="./style.css">
-</head>
+<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🎬 Quiz Ciné — Player</title><link rel="stylesheet" href="./style.css"></head>
 <body>
 <div class="card">
   <h1>🎬 Rejoindre le Quiz Ciné</h1>
@@ -14,22 +10,17 @@
   <label>Pseudo</label>
   <input id="name" placeholder="Ton pseudo">
   <button id="join" class="primary">Rejoindre</button>
-
   <div id="screen" style="display:none">
     <div id="qtext" class="qtext"></div>
     <img id="qimg" class="qimg" style="display:none" alt="image question">
-    <video id="qvid" class="qvid" style="display:none" playsinline muted controls></video>
     <div id="choices"></div>
     <div id="openBox" style="display:none">
-      <input id="openAnswer" placeholder="Ta réponse ici…">
-      <button id="sendOpen" class="primary">Envoyer</button>
+      <input id="openAnswer" placeholder="Ta réponse ici…"><button id="sendOpen" class="primary">Envoyer</button>
     </div>
     <div class="status" id="status">En attente…</div>
   </div>
 </div>
-
 <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
 <script>const DEFAULT_WS="ws://localhost:10000";</script>
 <script src="./script.js"></script>
-</body>
-</html>
+</body></html>
