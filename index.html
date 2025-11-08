@@ -1,48 +1,107 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>🎬 Quiz Ciné — Joueur</title>
-<link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz Ciné - Player</title>
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
 
-<style>
-body { margin:0; background:#0f0b1a; color:#fff; font-family:system-ui; text-align:center; padding:20px; }
-h1 { font-size:26px; margin-bottom:10px; }
-#questionBox { margin-top:20px; }
-#qImage { max-width:90%; border-radius:12px; margin-top:14px; display:none; }
-.choice { padding:14px; margin:10px auto; width:90%; border-radius:12px; background:#2b1f45; cursor:pointer; font-size:20px; }
-.choice.selected { background:#5b2f95; }
-#timer { font-size:40px; margin-top:20px; color:#ffd23f; }
-#revealBox { margin-top:20px; font-size:24px; font-weight:bold; display:none; }
-#answerImage { margin-top:10px; max-width:90%; border-radius:12px; display:none; }
-</style>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    #joinBox, #gameBox {
+      max-width: 600px;
+      margin: auto;
+    }
+
+    input, button {
+      padding: 12px;
+      font-size: 18px;
+      border-radius: 10px;
+      border: none;
+      margin: 8px;
+    }
+
+    button {
+      background: #ffcc00;
+      color: #000;
+      cursor: pointer;
+    }
+
+    .choice {
+      background: #333;
+      padding: 14px;
+      margin: 10px;
+      border-radius: 10px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .choice:hover {
+      background: #555;
+    }
+
+    .selected {
+      background: #0a0 !important;
+      color: #fff;
+    }
+
+    #timer {
+      font-size: 26px;
+      margin-top: 15px;
+    }
+
+    #qImage, #answerImage {
+      width: 80%;
+      border-radius: 12px;
+      margin-top: 15px;
+      display: none;
+    }
+
+    #revealBox {
+      background: #222;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 12px;
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
-<h1>🎬 Quiz Ciné</h1>
-
-<div id="joinBox">
-  <p>Code de la salle :</p>
-  <input id="roomInput" placeholder="CINE" style="padding:12px;font-size:20px;text-transform:uppercase">
-  <p>Votre pseudo :</p>
-  <input id="nameInput" placeholder="Ex: Toto" style="padding:12px;font-size:20px">
-  <button id="joinBtn" style="padding:14px 26px;font-size:20px;margin-top:20px;">Rejoindre</button>
-</div>
-
-<div id="gameBox" style="display:none;">
-  <div id="timer">—</div>
-  <div id="questionBox"></div>
-  <img id="qImage">
-  <div id="choices"></div>
-
-  <div id="revealBox">
-    ✅ Réponse : <span id="revealText"></span>
-    <img id="answerImage">
+  <div id="joinBox">
+    <h1>🎬 Quiz Ciné</h1>
+    <input id="roomInput" placeholder="Code salle (ex: ABCD)" />
+    <input id="nameInput" placeholder="Votre nom" />
+    <button id="joinBtn">Rejoindre</button>
   </div>
-</div>
 
-<script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
-<script src="./script.js"></script>
+  <div id="gameBox" style="display:none;">
+    <h2 id="questionBox"></h2>
+
+    <img id="qImage" />
+
+    <div id="choices"></div>
+
+    <!-- ✅ Champ pour questions ouvertes -->
+    <input id="openInput" placeholder="Votre réponse…" style="display:none;width:90%;padding:14px;font-size:20px;border-radius:12px;margin-top:14px;">
+    <button id="sendOpen" style="display:none;padding:14px 26px;font-size:20px;margin-top:10px;">Envoyer</button>
+
+    <div id="timer"></div>
+
+    <div id="revealBox">
+      <h3 id="revealText"></h3>
+      <img id="answerImage" />
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
