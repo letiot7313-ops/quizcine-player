@@ -1,22 +1,8 @@
-:root{--bg1:#0c0715; --bg2:#170c2b; --gold:#ffd23f; --pink:#ff4ddb; --white:#fff}
-*{box-sizing:border-box}
-html,body{height:100%;margin:0}
-body{
-  background:
-    radial-gradient(700px 280px at 50% -10%, rgba(255,77,219,.22), transparent 60%),
-    linear-gradient(180deg,var(--bg2),var(--bg1));
-  color:var(--white);
-  font-family:Montserrat,system-ui,Segoe UI,Roboto,Arial;
-  display:flex;align-items:center;justify-content:center;padding:16px
-}
-.card{width:100%;max-width:520px;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:16px;backdrop-filter: blur(6px);}
-h1{margin:0 0 10px 0;font-size:24px;color:var(--gold)}
-label{font-size:13px;opacity:.9}
-input,button{width:100%;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:#fff;font:inherit;margin-top:8px}
-button{cursor:pointer}
-button.primary{background:linear-gradient(180deg,var(--gold),#ffb703);color:#1a0a00;font-weight:900}
+body{margin:0;font-family:system-ui;background:#0f0b1a;color:#fff;display:flex;align-items:center;justify-content:center;height:100vh}
+.card{width:100%;max-width:520px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:16px}
+label{font-size:13px;opacity:.85} input,button{width:100%;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.07);color:#fff;margin-top:8px}
+button.primary{background:#ffd23f;color:#1a0a00;font-weight:900;border:none}
 .choice{padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);margin-top:10px;text-align:center}
-.choice.selected{border-color:var(--gold);background:rgba(255,210,63,.18)}
+.choice.selected{border-color:#ffd23f;background:rgba(255,210,63,.18)}
+img.qimg,video.qvid{display:block;max-width:100%;border-radius:12px;border:2px solid rgba(255,255,255,.15);margin-top:8px}
 .status{margin-top:10px;font-size:13px;opacity:.9}
-img.qimg{display:block;max-width:100%;border-radius:12px;border:2px solid rgba(255,255,255,.15);margin-top:8px}
-.qtext{margin-top:8px;font-weight:800}
