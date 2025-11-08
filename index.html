@@ -1,26 +1,48 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>🎬 Quiz Ciné — Player</title><link rel="stylesheet" href="./style.css"></head>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🎬 Quiz Ciné — Joueur</title>
+<link rel="stylesheet" href="./style.css">
+
+<style>
+body { margin:0; background:#0f0b1a; color:#fff; font-family:system-ui; text-align:center; padding:20px; }
+h1 { font-size:26px; margin-bottom:10px; }
+#questionBox { margin-top:20px; }
+#qImage { max-width:90%; border-radius:12px; margin-top:14px; display:none; }
+.choice { padding:14px; margin:10px auto; width:90%; border-radius:12px; background:#2b1f45; cursor:pointer; font-size:20px; }
+.choice.selected { background:#5b2f95; }
+#timer { font-size:40px; margin-top:20px; color:#ffd23f; }
+#revealBox { margin-top:20px; font-size:24px; font-weight:bold; display:none; }
+#answerImage { margin-top:10px; max-width:90%; border-radius:12px; display:none; }
+</style>
+</head>
+
 <body>
-<div class="card">
-  <h1>🎬 Rejoindre le Quiz Ciné</h1>
-  <label>Code de salle</label>
-  <input id="code" placeholder="Ex: CINE" style="text-transform:uppercase">
-  <label>Pseudo</label>
-  <input id="name" placeholder="Ton pseudo">
-  <button id="join" class="primary">Rejoindre</button>
-  <div id="screen" style="display:none">
-    <div id="qtext" class="qtext"></div>
-    <img id="qimg" class="qimg" style="display:none" alt="image question">
-    <div id="choices"></div>
-    <div id="openBox" style="display:none">
-      <input id="openAnswer" placeholder="Ta réponse ici…"><button id="sendOpen" class="primary">Envoyer</button>
-    </div>
-    <div class="status" id="status">En attente…</div>
+<h1>🎬 Quiz Ciné</h1>
+
+<div id="joinBox">
+  <p>Code de la salle :</p>
+  <input id="roomInput" placeholder="CINE" style="padding:12px;font-size:20px;text-transform:uppercase">
+  <p>Votre pseudo :</p>
+  <input id="nameInput" placeholder="Ex: Toto" style="padding:12px;font-size:20px">
+  <button id="joinBtn" style="padding:14px 26px;font-size:20px;margin-top:20px;">Rejoindre</button>
+</div>
+
+<div id="gameBox" style="display:none;">
+  <div id="timer">—</div>
+  <div id="questionBox"></div>
+  <img id="qImage">
+  <div id="choices"></div>
+
+  <div id="revealBox">
+    ✅ Réponse : <span id="revealText"></span>
+    <img id="answerImage">
   </div>
 </div>
+
 <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
-<script>const DEFAULT_WS="ws://localhost:10000";</script>
 <script src="./script.js"></script>
-</body></html>
+</body>
+</html>
